@@ -15,7 +15,7 @@ class Gym
 
   def memberships
     Membership.all.select do |membership|
-      membership.gym
+      membership.gym == self
     end
   end
 
