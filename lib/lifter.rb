@@ -27,7 +27,7 @@ class Lifter
   end
 
   def average_lift_total
-    sum = @@all.map do |total|
+    @@all.map do |total|
       total.lift_total
     end.sum/@@all.count
   end

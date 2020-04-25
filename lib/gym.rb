@@ -6,6 +6,7 @@ class Gym
 
   def initialize(name)
     @name = name
+    Gym.all << self
   end
 
   def self.all
