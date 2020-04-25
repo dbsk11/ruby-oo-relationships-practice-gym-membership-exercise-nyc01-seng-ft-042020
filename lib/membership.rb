@@ -11,6 +11,10 @@ class Membership
     Membership.all << self
   end
 
+  def cost
+    @cost
+  end
+
   def self.all
     @@all
   end
