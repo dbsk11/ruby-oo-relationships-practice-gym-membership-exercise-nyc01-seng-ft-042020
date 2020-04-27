@@ -10,7 +10,7 @@ class Gym
   end
 
   def self.all
-    @@all
+    @@all 
   end
 
   def memberships
@@ -20,29 +20,31 @@ class Gym
   end
 
   def lifters
-    memberships.map do |membership|
-      membership.lifter
+    memberships.map do |lifter|
+      lifter.lifter
     end
   end
 
-  def name_of_lifter
+  def lifter_names
     lifters.map do |lifter|
       lifter.name
     end
   end
 
   def lift_total
-    lifters.map do |lift|
-      lift.lift_total 
+    lifters.map do |lifter|
+      lifter.lift_total
     end.sum
   end
+
 end
 
 #initalizes with name
 #can only read name
 
 #list all gyms
-#list of all memberships by gym
-#list of all lifters that have memberships by gym
-#list of all liters that have membership to gym
-#combined lift total of every lifter by membership to a gym
+  #@@all
+#list all memberships by gym
+#list all lifters with memberships at a gym
+#list all lifter names with memberships at a gym
+#combined lift total of every lifter that has a membership to gym

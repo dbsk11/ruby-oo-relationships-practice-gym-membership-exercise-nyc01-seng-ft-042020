@@ -15,32 +15,32 @@ class Lifter
   end
 
   def memberships
-    Membership.all.select do |member|
-      member.lifter == self
+    Membership.all.select do |membership|
+      membership.lifter == self
     end
   end
 
   def gyms
-    memberships.map do |member|
-      member.gym
+    memberships.map do |gym|
+      gym.gym
     end
   end
 
-  def average_lift_total
-    @@all.map do |total|
-      total.lift_total
-    end.sum/@@all.count
+  def avg_lift_total
+    Lifter.all.map do |lift|
+      lift.lift_total
+    end.sum/Lifter.all.count
   end
 
   def total_cost
-    total = memberships.map do |member|
-      member.cost
-    end
-    total.sum
+    memberships.map do |membership|
+      membership.cost
+    end.sum
   end
 
-  def new_membership(gym, cost)
-    Mmebership.new(gym, self, cost)
+  def sign_up(gym, cost)
+    binding.pry
+    Membership.new(self, gym, cost)
   end
 
 end
@@ -49,9 +49,10 @@ end
 #initalizes with name and lift_total
 #can only read name and lift_total
 
-#deliver list of lifters 
-#list of all memberships by lifter
-#list all gyms memberships by lifter
-#average lift total of all lifters
-#total cost of specific gym memberships
-#given cost and gym, sign up for a new gym
+#lists all lifters
+  #@@all
+#list all memberships by lifter
+#list all gyms a lifter has memberships to
+#average lift total of lifter
+#total cost of lifters gym memberships
+#sign up for a gym
